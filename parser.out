@@ -1,0 +1,894 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    COMILLA
+    DIV
+    ENTERO
+    MAS
+    MENOS
+    MULTI
+    SEMI
+    STRING
+
+Grammar
+
+Rule 0     S' -> init
+Rule 1     init -> inicio
+Rule 2     init -> opcion2
+Rule 3     init -> opcion3
+Rule 4     init -> opcion4
+Rule 5     inicio -> PARAQOQUE LPAREN variable ID ASSIGN NUMBER PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+Rule 6     inicio -> PARAQOQUE LPAREN variable ID PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+Rule 7     opcion2 -> AGUSTICIDAD variable ID ASSIGN ident
+Rule 8     opcion2 -> AGUSTICIDAD variable ID
+Rule 9     opcion3 -> VASIR LPAREN ID operador ident RPAREN LBRACE cualquier RBRACE NOVASIR LBRACE cualquier RBRACE
+Rule 10    opcion4 -> VUELAOQUE SIONO LPAREN RPAREN LBRACE cualquier RBRACE
+Rule 11    opcion4 -> VUELAOQUE ID LPAREN variable ID RPAREN LBRACE cualquier RBRACE
+Rule 12    cualquier -> opcion2
+Rule 13    cualquier -> opcion4
+Rule 14    cualquier -> ident
+Rule 15    cualquier -> CONTENIDO
+Rule 16    variable -> UBUBUE
+Rule 17    variable -> PAN
+Rule 18    operador -> GREATER
+Rule 19    operador -> IGUALMA
+Rule 20    operador -> IGUALMENO
+Rule 21    operador -> DOBLEIGUAL
+Rule 22    operador -> MENOR
+Rule 23    operador -> DESIGUAL
+Rule 24    operador -> ASSIGN
+Rule 25    ident -> ID
+Rule 26    ident -> NUMBER
+
+Terminals, with rules where they appear
+
+AGUSTICIDAD          : 7 8
+ASSIGN               : 5 7 24
+COMILLA              : 
+CONTENIDO            : 15
+DESIGUAL             : 23
+DIV                  : 
+DOBLEIGUAL           : 21
+ENTERO               : 
+GREATER              : 18
+ID                   : 5 5 5 6 6 6 7 8 9 11 11 25
+IGUALMA              : 19
+IGUALMENO            : 20
+INCREMENT            : 5 6
+LBRACE               : 5 6 9 9 10 11
+LPAREN               : 5 6 9 10 11
+MAS                  : 
+MENOR                : 22
+MENOS                : 
+MULTI                : 
+NOVASIR              : 9
+NUMBER               : 5 5 6 26
+PAN                  : 17
+PARAQOQUE            : 5 6
+PUNTCOM              : 5 5 5 6 6 6
+RBRACE               : 5 6 9 9 10 11
+RPAREN               : 5 6 9 10 11
+SEMI                 : 
+SIONO                : 10
+STRING               : 
+UBUBUE               : 16
+VASIR                : 9
+VUELAOQUE            : 10 11
+error                : 
+
+Nonterminals, with rules where they appear
+
+cualquier            : 5 6 9 9 10 11
+ident                : 7 9 14
+inicio               : 1
+init                 : 0
+opcion2              : 2 12
+opcion3              : 3
+opcion4              : 4 13
+operador             : 5 6 9
+variable             : 5 6 7 8 11
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . init
+    (1) init -> . inicio
+    (2) init -> . opcion2
+    (3) init -> . opcion3
+    (4) init -> . opcion4
+    (5) inicio -> . PARAQOQUE LPAREN variable ID ASSIGN NUMBER PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+    (6) inicio -> . PARAQOQUE LPAREN variable ID PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+    (7) opcion2 -> . AGUSTICIDAD variable ID ASSIGN ident
+    (8) opcion2 -> . AGUSTICIDAD variable ID
+    (9) opcion3 -> . VASIR LPAREN ID operador ident RPAREN LBRACE cualquier RBRACE NOVASIR LBRACE cualquier RBRACE
+    (10) opcion4 -> . VUELAOQUE SIONO LPAREN RPAREN LBRACE cualquier RBRACE
+    (11) opcion4 -> . VUELAOQUE ID LPAREN variable ID RPAREN LBRACE cualquier RBRACE
+
+    PARAQOQUE       shift and go to state 6
+    AGUSTICIDAD     shift and go to state 7
+    VASIR           shift and go to state 8
+    VUELAOQUE       shift and go to state 9
+
+    init                           shift and go to state 1
+    inicio                         shift and go to state 2
+    opcion2                        shift and go to state 3
+    opcion3                        shift and go to state 4
+    opcion4                        shift and go to state 5
+
+state 1
+
+    (0) S' -> init .
+
+
+
+state 2
+
+    (1) init -> inicio .
+
+    $end            reduce using rule 1 (init -> inicio .)
+
+
+state 3
+
+    (2) init -> opcion2 .
+
+    $end            reduce using rule 2 (init -> opcion2 .)
+
+
+state 4
+
+    (3) init -> opcion3 .
+
+    $end            reduce using rule 3 (init -> opcion3 .)
+
+
+state 5
+
+    (4) init -> opcion4 .
+
+    $end            reduce using rule 4 (init -> opcion4 .)
+
+
+state 6
+
+    (5) inicio -> PARAQOQUE . LPAREN variable ID ASSIGN NUMBER PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+    (6) inicio -> PARAQOQUE . LPAREN variable ID PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+
+    LPAREN          shift and go to state 10
+
+
+state 7
+
+    (7) opcion2 -> AGUSTICIDAD . variable ID ASSIGN ident
+    (8) opcion2 -> AGUSTICIDAD . variable ID
+    (16) variable -> . UBUBUE
+    (17) variable -> . PAN
+
+    UBUBUE          shift and go to state 12
+    PAN             shift and go to state 13
+
+    variable                       shift and go to state 11
+
+state 8
+
+    (9) opcion3 -> VASIR . LPAREN ID operador ident RPAREN LBRACE cualquier RBRACE NOVASIR LBRACE cualquier RBRACE
+
+    LPAREN          shift and go to state 14
+
+
+state 9
+
+    (10) opcion4 -> VUELAOQUE . SIONO LPAREN RPAREN LBRACE cualquier RBRACE
+    (11) opcion4 -> VUELAOQUE . ID LPAREN variable ID RPAREN LBRACE cualquier RBRACE
+
+    SIONO           shift and go to state 15
+    ID              shift and go to state 16
+
+
+state 10
+
+    (5) inicio -> PARAQOQUE LPAREN . variable ID ASSIGN NUMBER PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+    (6) inicio -> PARAQOQUE LPAREN . variable ID PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+    (16) variable -> . UBUBUE
+    (17) variable -> . PAN
+
+    UBUBUE          shift and go to state 12
+    PAN             shift and go to state 13
+
+    variable                       shift and go to state 17
+
+state 11
+
+    (7) opcion2 -> AGUSTICIDAD variable . ID ASSIGN ident
+    (8) opcion2 -> AGUSTICIDAD variable . ID
+
+    ID              shift and go to state 18
+
+
+state 12
+
+    (16) variable -> UBUBUE .
+
+    ID              reduce using rule 16 (variable -> UBUBUE .)
+
+
+state 13
+
+    (17) variable -> PAN .
+
+    ID              reduce using rule 17 (variable -> PAN .)
+
+
+state 14
+
+    (9) opcion3 -> VASIR LPAREN . ID operador ident RPAREN LBRACE cualquier RBRACE NOVASIR LBRACE cualquier RBRACE
+
+    ID              shift and go to state 19
+
+
+state 15
+
+    (10) opcion4 -> VUELAOQUE SIONO . LPAREN RPAREN LBRACE cualquier RBRACE
+
+    LPAREN          shift and go to state 20
+
+
+state 16
+
+    (11) opcion4 -> VUELAOQUE ID . LPAREN variable ID RPAREN LBRACE cualquier RBRACE
+
+    LPAREN          shift and go to state 21
+
+
+state 17
+
+    (5) inicio -> PARAQOQUE LPAREN variable . ID ASSIGN NUMBER PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+    (6) inicio -> PARAQOQUE LPAREN variable . ID PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+
+    ID              shift and go to state 22
+
+
+state 18
+
+    (7) opcion2 -> AGUSTICIDAD variable ID . ASSIGN ident
+    (8) opcion2 -> AGUSTICIDAD variable ID .
+
+    ASSIGN          shift and go to state 23
+    $end            reduce using rule 8 (opcion2 -> AGUSTICIDAD variable ID .)
+    RBRACE          reduce using rule 8 (opcion2 -> AGUSTICIDAD variable ID .)
+
+
+state 19
+
+    (9) opcion3 -> VASIR LPAREN ID . operador ident RPAREN LBRACE cualquier RBRACE NOVASIR LBRACE cualquier RBRACE
+    (18) operador -> . GREATER
+    (19) operador -> . IGUALMA
+    (20) operador -> . IGUALMENO
+    (21) operador -> . DOBLEIGUAL
+    (22) operador -> . MENOR
+    (23) operador -> . DESIGUAL
+    (24) operador -> . ASSIGN
+
+    GREATER         shift and go to state 25
+    IGUALMA         shift and go to state 26
+    IGUALMENO       shift and go to state 27
+    DOBLEIGUAL      shift and go to state 28
+    MENOR           shift and go to state 29
+    DESIGUAL        shift and go to state 30
+    ASSIGN          shift and go to state 31
+
+    operador                       shift and go to state 24
+
+state 20
+
+    (10) opcion4 -> VUELAOQUE SIONO LPAREN . RPAREN LBRACE cualquier RBRACE
+
+    RPAREN          shift and go to state 32
+
+
+state 21
+
+    (11) opcion4 -> VUELAOQUE ID LPAREN . variable ID RPAREN LBRACE cualquier RBRACE
+    (16) variable -> . UBUBUE
+    (17) variable -> . PAN
+
+    UBUBUE          shift and go to state 12
+    PAN             shift and go to state 13
+
+    variable                       shift and go to state 33
+
+state 22
+
+    (5) inicio -> PARAQOQUE LPAREN variable ID . ASSIGN NUMBER PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+    (6) inicio -> PARAQOQUE LPAREN variable ID . PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+
+    ASSIGN          shift and go to state 34
+    PUNTCOM         shift and go to state 35
+
+
+state 23
+
+    (7) opcion2 -> AGUSTICIDAD variable ID ASSIGN . ident
+    (25) ident -> . ID
+    (26) ident -> . NUMBER
+
+    ID              shift and go to state 36
+    NUMBER          shift and go to state 38
+
+    ident                          shift and go to state 37
+
+state 24
+
+    (9) opcion3 -> VASIR LPAREN ID operador . ident RPAREN LBRACE cualquier RBRACE NOVASIR LBRACE cualquier RBRACE
+    (25) ident -> . ID
+    (26) ident -> . NUMBER
+
+    ID              shift and go to state 36
+    NUMBER          shift and go to state 38
+
+    ident                          shift and go to state 39
+
+state 25
+
+    (18) operador -> GREATER .
+
+    ID              reduce using rule 18 (operador -> GREATER .)
+    NUMBER          reduce using rule 18 (operador -> GREATER .)
+
+
+state 26
+
+    (19) operador -> IGUALMA .
+
+    ID              reduce using rule 19 (operador -> IGUALMA .)
+    NUMBER          reduce using rule 19 (operador -> IGUALMA .)
+
+
+state 27
+
+    (20) operador -> IGUALMENO .
+
+    ID              reduce using rule 20 (operador -> IGUALMENO .)
+    NUMBER          reduce using rule 20 (operador -> IGUALMENO .)
+
+
+state 28
+
+    (21) operador -> DOBLEIGUAL .
+
+    ID              reduce using rule 21 (operador -> DOBLEIGUAL .)
+    NUMBER          reduce using rule 21 (operador -> DOBLEIGUAL .)
+
+
+state 29
+
+    (22) operador -> MENOR .
+
+    ID              reduce using rule 22 (operador -> MENOR .)
+    NUMBER          reduce using rule 22 (operador -> MENOR .)
+
+
+state 30
+
+    (23) operador -> DESIGUAL .
+
+    ID              reduce using rule 23 (operador -> DESIGUAL .)
+    NUMBER          reduce using rule 23 (operador -> DESIGUAL .)
+
+
+state 31
+
+    (24) operador -> ASSIGN .
+
+    ID              reduce using rule 24 (operador -> ASSIGN .)
+    NUMBER          reduce using rule 24 (operador -> ASSIGN .)
+
+
+state 32
+
+    (10) opcion4 -> VUELAOQUE SIONO LPAREN RPAREN . LBRACE cualquier RBRACE
+
+    LBRACE          shift and go to state 40
+
+
+state 33
+
+    (11) opcion4 -> VUELAOQUE ID LPAREN variable . ID RPAREN LBRACE cualquier RBRACE
+
+    ID              shift and go to state 41
+
+
+state 34
+
+    (5) inicio -> PARAQOQUE LPAREN variable ID ASSIGN . NUMBER PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+
+    NUMBER          shift and go to state 42
+
+
+state 35
+
+    (6) inicio -> PARAQOQUE LPAREN variable ID PUNTCOM . ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+
+    ID              shift and go to state 43
+
+
+state 36
+
+    (25) ident -> ID .
+
+    $end            reduce using rule 25 (ident -> ID .)
+    RBRACE          reduce using rule 25 (ident -> ID .)
+    RPAREN          reduce using rule 25 (ident -> ID .)
+
+
+state 37
+
+    (7) opcion2 -> AGUSTICIDAD variable ID ASSIGN ident .
+
+    $end            reduce using rule 7 (opcion2 -> AGUSTICIDAD variable ID ASSIGN ident .)
+    RBRACE          reduce using rule 7 (opcion2 -> AGUSTICIDAD variable ID ASSIGN ident .)
+
+
+state 38
+
+    (26) ident -> NUMBER .
+
+    $end            reduce using rule 26 (ident -> NUMBER .)
+    RBRACE          reduce using rule 26 (ident -> NUMBER .)
+    RPAREN          reduce using rule 26 (ident -> NUMBER .)
+
+
+state 39
+
+    (9) opcion3 -> VASIR LPAREN ID operador ident . RPAREN LBRACE cualquier RBRACE NOVASIR LBRACE cualquier RBRACE
+
+    RPAREN          shift and go to state 44
+
+
+state 40
+
+    (10) opcion4 -> VUELAOQUE SIONO LPAREN RPAREN LBRACE . cualquier RBRACE
+    (12) cualquier -> . opcion2
+    (13) cualquier -> . opcion4
+    (14) cualquier -> . ident
+    (15) cualquier -> . CONTENIDO
+    (7) opcion2 -> . AGUSTICIDAD variable ID ASSIGN ident
+    (8) opcion2 -> . AGUSTICIDAD variable ID
+    (10) opcion4 -> . VUELAOQUE SIONO LPAREN RPAREN LBRACE cualquier RBRACE
+    (11) opcion4 -> . VUELAOQUE ID LPAREN variable ID RPAREN LBRACE cualquier RBRACE
+    (25) ident -> . ID
+    (26) ident -> . NUMBER
+
+    CONTENIDO       shift and go to state 49
+    AGUSTICIDAD     shift and go to state 7
+    VUELAOQUE       shift and go to state 9
+    ID              shift and go to state 36
+    NUMBER          shift and go to state 38
+
+    cualquier                      shift and go to state 45
+    opcion2                        shift and go to state 46
+    opcion4                        shift and go to state 47
+    ident                          shift and go to state 48
+
+state 41
+
+    (11) opcion4 -> VUELAOQUE ID LPAREN variable ID . RPAREN LBRACE cualquier RBRACE
+
+    RPAREN          shift and go to state 50
+
+
+state 42
+
+    (5) inicio -> PARAQOQUE LPAREN variable ID ASSIGN NUMBER . PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+
+    PUNTCOM         shift and go to state 51
+
+
+state 43
+
+    (6) inicio -> PARAQOQUE LPAREN variable ID PUNTCOM ID . operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+    (18) operador -> . GREATER
+    (19) operador -> . IGUALMA
+    (20) operador -> . IGUALMENO
+    (21) operador -> . DOBLEIGUAL
+    (22) operador -> . MENOR
+    (23) operador -> . DESIGUAL
+    (24) operador -> . ASSIGN
+
+    GREATER         shift and go to state 25
+    IGUALMA         shift and go to state 26
+    IGUALMENO       shift and go to state 27
+    DOBLEIGUAL      shift and go to state 28
+    MENOR           shift and go to state 29
+    DESIGUAL        shift and go to state 30
+    ASSIGN          shift and go to state 31
+
+    operador                       shift and go to state 52
+
+state 44
+
+    (9) opcion3 -> VASIR LPAREN ID operador ident RPAREN . LBRACE cualquier RBRACE NOVASIR LBRACE cualquier RBRACE
+
+    LBRACE          shift and go to state 53
+
+
+state 45
+
+    (10) opcion4 -> VUELAOQUE SIONO LPAREN RPAREN LBRACE cualquier . RBRACE
+
+    RBRACE          shift and go to state 54
+
+
+state 46
+
+    (12) cualquier -> opcion2 .
+
+    RBRACE          reduce using rule 12 (cualquier -> opcion2 .)
+
+
+state 47
+
+    (13) cualquier -> opcion4 .
+
+    RBRACE          reduce using rule 13 (cualquier -> opcion4 .)
+
+
+state 48
+
+    (14) cualquier -> ident .
+
+    RBRACE          reduce using rule 14 (cualquier -> ident .)
+
+
+state 49
+
+    (15) cualquier -> CONTENIDO .
+
+    RBRACE          reduce using rule 15 (cualquier -> CONTENIDO .)
+
+
+state 50
+
+    (11) opcion4 -> VUELAOQUE ID LPAREN variable ID RPAREN . LBRACE cualquier RBRACE
+
+    LBRACE          shift and go to state 55
+
+
+state 51
+
+    (5) inicio -> PARAQOQUE LPAREN variable ID ASSIGN NUMBER PUNTCOM . ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+
+    ID              shift and go to state 56
+
+
+state 52
+
+    (6) inicio -> PARAQOQUE LPAREN variable ID PUNTCOM ID operador . NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+
+    NUMBER          shift and go to state 57
+
+
+state 53
+
+    (9) opcion3 -> VASIR LPAREN ID operador ident RPAREN LBRACE . cualquier RBRACE NOVASIR LBRACE cualquier RBRACE
+    (12) cualquier -> . opcion2
+    (13) cualquier -> . opcion4
+    (14) cualquier -> . ident
+    (15) cualquier -> . CONTENIDO
+    (7) opcion2 -> . AGUSTICIDAD variable ID ASSIGN ident
+    (8) opcion2 -> . AGUSTICIDAD variable ID
+    (10) opcion4 -> . VUELAOQUE SIONO LPAREN RPAREN LBRACE cualquier RBRACE
+    (11) opcion4 -> . VUELAOQUE ID LPAREN variable ID RPAREN LBRACE cualquier RBRACE
+    (25) ident -> . ID
+    (26) ident -> . NUMBER
+
+    CONTENIDO       shift and go to state 49
+    AGUSTICIDAD     shift and go to state 7
+    VUELAOQUE       shift and go to state 9
+    ID              shift and go to state 36
+    NUMBER          shift and go to state 38
+
+    ident                          shift and go to state 48
+    cualquier                      shift and go to state 58
+    opcion2                        shift and go to state 46
+    opcion4                        shift and go to state 47
+
+state 54
+
+    (10) opcion4 -> VUELAOQUE SIONO LPAREN RPAREN LBRACE cualquier RBRACE .
+
+    $end            reduce using rule 10 (opcion4 -> VUELAOQUE SIONO LPAREN RPAREN LBRACE cualquier RBRACE .)
+    RBRACE          reduce using rule 10 (opcion4 -> VUELAOQUE SIONO LPAREN RPAREN LBRACE cualquier RBRACE .)
+
+
+state 55
+
+    (11) opcion4 -> VUELAOQUE ID LPAREN variable ID RPAREN LBRACE . cualquier RBRACE
+    (12) cualquier -> . opcion2
+    (13) cualquier -> . opcion4
+    (14) cualquier -> . ident
+    (15) cualquier -> . CONTENIDO
+    (7) opcion2 -> . AGUSTICIDAD variable ID ASSIGN ident
+    (8) opcion2 -> . AGUSTICIDAD variable ID
+    (10) opcion4 -> . VUELAOQUE SIONO LPAREN RPAREN LBRACE cualquier RBRACE
+    (11) opcion4 -> . VUELAOQUE ID LPAREN variable ID RPAREN LBRACE cualquier RBRACE
+    (25) ident -> . ID
+    (26) ident -> . NUMBER
+
+    CONTENIDO       shift and go to state 49
+    AGUSTICIDAD     shift and go to state 7
+    VUELAOQUE       shift and go to state 9
+    ID              shift and go to state 36
+    NUMBER          shift and go to state 38
+
+    cualquier                      shift and go to state 59
+    opcion2                        shift and go to state 46
+    opcion4                        shift and go to state 47
+    ident                          shift and go to state 48
+
+state 56
+
+    (5) inicio -> PARAQOQUE LPAREN variable ID ASSIGN NUMBER PUNTCOM ID . operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+    (18) operador -> . GREATER
+    (19) operador -> . IGUALMA
+    (20) operador -> . IGUALMENO
+    (21) operador -> . DOBLEIGUAL
+    (22) operador -> . MENOR
+    (23) operador -> . DESIGUAL
+    (24) operador -> . ASSIGN
+
+    GREATER         shift and go to state 25
+    IGUALMA         shift and go to state 26
+    IGUALMENO       shift and go to state 27
+    DOBLEIGUAL      shift and go to state 28
+    MENOR           shift and go to state 29
+    DESIGUAL        shift and go to state 30
+    ASSIGN          shift and go to state 31
+
+    operador                       shift and go to state 60
+
+state 57
+
+    (6) inicio -> PARAQOQUE LPAREN variable ID PUNTCOM ID operador NUMBER . PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+
+    PUNTCOM         shift and go to state 61
+
+
+state 58
+
+    (9) opcion3 -> VASIR LPAREN ID operador ident RPAREN LBRACE cualquier . RBRACE NOVASIR LBRACE cualquier RBRACE
+
+    RBRACE          shift and go to state 62
+
+
+state 59
+
+    (11) opcion4 -> VUELAOQUE ID LPAREN variable ID RPAREN LBRACE cualquier . RBRACE
+
+    RBRACE          shift and go to state 63
+
+
+state 60
+
+    (5) inicio -> PARAQOQUE LPAREN variable ID ASSIGN NUMBER PUNTCOM ID operador . NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+
+    NUMBER          shift and go to state 64
+
+
+state 61
+
+    (6) inicio -> PARAQOQUE LPAREN variable ID PUNTCOM ID operador NUMBER PUNTCOM . ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+
+    ID              shift and go to state 65
+
+
+state 62
+
+    (9) opcion3 -> VASIR LPAREN ID operador ident RPAREN LBRACE cualquier RBRACE . NOVASIR LBRACE cualquier RBRACE
+
+    NOVASIR         shift and go to state 66
+
+
+state 63
+
+    (11) opcion4 -> VUELAOQUE ID LPAREN variable ID RPAREN LBRACE cualquier RBRACE .
+
+    $end            reduce using rule 11 (opcion4 -> VUELAOQUE ID LPAREN variable ID RPAREN LBRACE cualquier RBRACE .)
+    RBRACE          reduce using rule 11 (opcion4 -> VUELAOQUE ID LPAREN variable ID RPAREN LBRACE cualquier RBRACE .)
+
+
+state 64
+
+    (5) inicio -> PARAQOQUE LPAREN variable ID ASSIGN NUMBER PUNTCOM ID operador NUMBER . PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+
+    PUNTCOM         shift and go to state 67
+
+
+state 65
+
+    (6) inicio -> PARAQOQUE LPAREN variable ID PUNTCOM ID operador NUMBER PUNTCOM ID . INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+
+    INCREMENT       shift and go to state 68
+
+
+state 66
+
+    (9) opcion3 -> VASIR LPAREN ID operador ident RPAREN LBRACE cualquier RBRACE NOVASIR . LBRACE cualquier RBRACE
+
+    LBRACE          shift and go to state 69
+
+
+state 67
+
+    (5) inicio -> PARAQOQUE LPAREN variable ID ASSIGN NUMBER PUNTCOM ID operador NUMBER PUNTCOM . ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+
+    ID              shift and go to state 70
+
+
+state 68
+
+    (6) inicio -> PARAQOQUE LPAREN variable ID PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT . PUNTCOM RPAREN LBRACE cualquier RBRACE
+
+    PUNTCOM         shift and go to state 71
+
+
+state 69
+
+    (9) opcion3 -> VASIR LPAREN ID operador ident RPAREN LBRACE cualquier RBRACE NOVASIR LBRACE . cualquier RBRACE
+    (12) cualquier -> . opcion2
+    (13) cualquier -> . opcion4
+    (14) cualquier -> . ident
+    (15) cualquier -> . CONTENIDO
+    (7) opcion2 -> . AGUSTICIDAD variable ID ASSIGN ident
+    (8) opcion2 -> . AGUSTICIDAD variable ID
+    (10) opcion4 -> . VUELAOQUE SIONO LPAREN RPAREN LBRACE cualquier RBRACE
+    (11) opcion4 -> . VUELAOQUE ID LPAREN variable ID RPAREN LBRACE cualquier RBRACE
+    (25) ident -> . ID
+    (26) ident -> . NUMBER
+
+    CONTENIDO       shift and go to state 49
+    AGUSTICIDAD     shift and go to state 7
+    VUELAOQUE       shift and go to state 9
+    ID              shift and go to state 36
+    NUMBER          shift and go to state 38
+
+    ident                          shift and go to state 48
+    cualquier                      shift and go to state 72
+    opcion2                        shift and go to state 46
+    opcion4                        shift and go to state 47
+
+state 70
+
+    (5) inicio -> PARAQOQUE LPAREN variable ID ASSIGN NUMBER PUNTCOM ID operador NUMBER PUNTCOM ID . INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE
+
+    INCREMENT       shift and go to state 73
+
+
+state 71
+
+    (6) inicio -> PARAQOQUE LPAREN variable ID PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM . RPAREN LBRACE cualquier RBRACE
+
+    RPAREN          shift and go to state 74
+
+
+state 72
+
+    (9) opcion3 -> VASIR LPAREN ID operador ident RPAREN LBRACE cualquier RBRACE NOVASIR LBRACE cualquier . RBRACE
+
+    RBRACE          shift and go to state 75
+
+
+state 73
+
+    (5) inicio -> PARAQOQUE LPAREN variable ID ASSIGN NUMBER PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT . PUNTCOM RPAREN LBRACE cualquier RBRACE
+
+    PUNTCOM         shift and go to state 76
+
+
+state 74
+
+    (6) inicio -> PARAQOQUE LPAREN variable ID PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN . LBRACE cualquier RBRACE
+
+    LBRACE          shift and go to state 77
+
+
+state 75
+
+    (9) opcion3 -> VASIR LPAREN ID operador ident RPAREN LBRACE cualquier RBRACE NOVASIR LBRACE cualquier RBRACE .
+
+    $end            reduce using rule 9 (opcion3 -> VASIR LPAREN ID operador ident RPAREN LBRACE cualquier RBRACE NOVASIR LBRACE cualquier RBRACE .)
+
+
+state 76
+
+    (5) inicio -> PARAQOQUE LPAREN variable ID ASSIGN NUMBER PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM . RPAREN LBRACE cualquier RBRACE
+
+    RPAREN          shift and go to state 78
+
+
+state 77
+
+    (6) inicio -> PARAQOQUE LPAREN variable ID PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE . cualquier RBRACE
+    (12) cualquier -> . opcion2
+    (13) cualquier -> . opcion4
+    (14) cualquier -> . ident
+    (15) cualquier -> . CONTENIDO
+    (7) opcion2 -> . AGUSTICIDAD variable ID ASSIGN ident
+    (8) opcion2 -> . AGUSTICIDAD variable ID
+    (10) opcion4 -> . VUELAOQUE SIONO LPAREN RPAREN LBRACE cualquier RBRACE
+    (11) opcion4 -> . VUELAOQUE ID LPAREN variable ID RPAREN LBRACE cualquier RBRACE
+    (25) ident -> . ID
+    (26) ident -> . NUMBER
+
+    CONTENIDO       shift and go to state 49
+    AGUSTICIDAD     shift and go to state 7
+    VUELAOQUE       shift and go to state 9
+    ID              shift and go to state 36
+    NUMBER          shift and go to state 38
+
+    cualquier                      shift and go to state 79
+    opcion2                        shift and go to state 46
+    opcion4                        shift and go to state 47
+    ident                          shift and go to state 48
+
+state 78
+
+    (5) inicio -> PARAQOQUE LPAREN variable ID ASSIGN NUMBER PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN . LBRACE cualquier RBRACE
+
+    LBRACE          shift and go to state 80
+
+
+state 79
+
+    (6) inicio -> PARAQOQUE LPAREN variable ID PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier . RBRACE
+
+    RBRACE          shift and go to state 81
+
+
+state 80
+
+    (5) inicio -> PARAQOQUE LPAREN variable ID ASSIGN NUMBER PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE . cualquier RBRACE
+    (12) cualquier -> . opcion2
+    (13) cualquier -> . opcion4
+    (14) cualquier -> . ident
+    (15) cualquier -> . CONTENIDO
+    (7) opcion2 -> . AGUSTICIDAD variable ID ASSIGN ident
+    (8) opcion2 -> . AGUSTICIDAD variable ID
+    (10) opcion4 -> . VUELAOQUE SIONO LPAREN RPAREN LBRACE cualquier RBRACE
+    (11) opcion4 -> . VUELAOQUE ID LPAREN variable ID RPAREN LBRACE cualquier RBRACE
+    (25) ident -> . ID
+    (26) ident -> . NUMBER
+
+    CONTENIDO       shift and go to state 49
+    AGUSTICIDAD     shift and go to state 7
+    VUELAOQUE       shift and go to state 9
+    ID              shift and go to state 36
+    NUMBER          shift and go to state 38
+
+    cualquier                      shift and go to state 82
+    opcion2                        shift and go to state 46
+    opcion4                        shift and go to state 47
+    ident                          shift and go to state 48
+
+state 81
+
+    (6) inicio -> PARAQOQUE LPAREN variable ID PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE .
+
+    $end            reduce using rule 6 (inicio -> PARAQOQUE LPAREN variable ID PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE .)
+
+
+state 82
+
+    (5) inicio -> PARAQOQUE LPAREN variable ID ASSIGN NUMBER PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier . RBRACE
+
+    RBRACE          shift and go to state 83
+
+
+state 83
+
+    (5) inicio -> PARAQOQUE LPAREN variable ID ASSIGN NUMBER PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE .
+
+    $end            reduce using rule 5 (inicio -> PARAQOQUE LPAREN variable ID ASSIGN NUMBER PUNTCOM ID operador NUMBER PUNTCOM ID INCREMENT PUNTCOM RPAREN LBRACE cualquier RBRACE .)
+

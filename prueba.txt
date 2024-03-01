@@ -1,0 +1,8 @@
+agusticidad ububue variable1 = vaquito
+agusticidad pan variable1 = 777
+agusticidad ububue vaco
+vuelaoque siono ( ){contenido} 
+vuelaoque edrei ( pan alex ) { contenido }
+paraqoque(pan i; i > 12; i++;){contenido}
+paraqoque(pan i=0; i > 12; i++;){contenido}
+vasir(x > 4) {contenido} novasir {contenido}
